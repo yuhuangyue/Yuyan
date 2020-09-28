@@ -17,6 +17,12 @@ using namespace cv;
 
 
 
+/*
+测试时候的要点：
+1. 进行扫视的时候，拿一个参照物去看会准一些
+2. cout数据会产生比较大的延迟
+*/
+
 struct SimuScreen {  //逆时针  右下开始
 	 Point3f p[4];
 };
@@ -28,6 +34,8 @@ struct Nodes
 	float x;
 	float y;
 };
+
+
 
 
 // 眼动指标
@@ -127,10 +135,16 @@ public:
 	int mSimulation_Screen_Height;
 	 Mat mBackup_Images[4];
 
+	 // 界面UI整体
+	 void DrawUI();
+	 Point statictitle;
+	 Point dynamictitle;
+
 
 	// 眼动指标
 	queue<GazeInfo> infoq;
 	vector<Point2f> gazes;
+	float speed_x, speed_y, begin_x, begin_y;
 	int fps;
 	int vec_idx;
 	void Draw_position(float x, float y); // 显示坐标点
@@ -165,7 +179,6 @@ public:
 	void isSearch();
 	vector<GazeInfo> searchList;
 	Point2f SearchValid();
-	void DrawSearchArea();
 	Rect searchArea;
 	
 

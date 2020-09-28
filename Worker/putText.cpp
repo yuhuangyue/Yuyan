@@ -22,7 +22,7 @@ void putTextZH(Mat &dst, const char* str, Point org, Scalar color, int fontSize,
 	lf.lfWidth = 0;
 	lf.lfEscapement = 0;
 	lf.lfOrientation = 0;
-	lf.lfWeight = 5;
+	lf.lfWeight = 8;
 	lf.lfItalic = italic;   //斜体
 	lf.lfUnderline = underline; //下划线
 	lf.lfStrikeOut = 0;
